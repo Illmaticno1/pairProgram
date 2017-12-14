@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+const express         = require ( 'express' );
+const app             = express();
+=======
 // DEPENDENCIES
 const express    = require('express');
 const mongoose   = require('mongoose');
@@ -29,3 +33,4 @@ app.use(morgan('dev'));
 
 // LISTEN
 app.listen(PORT, () => console.log('BOOKS API running on port: ', PORT));
+>>>>>>> 53369cb29d0832e93f389eeb2b9fba602220433a
