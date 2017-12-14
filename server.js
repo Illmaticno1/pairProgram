@@ -3,7 +3,6 @@ const express    = require('express');
 const mongoose   = require('mongoose');
 const morgan     = require('morgan');
 const app        = express();
-const session    = require('express-session');
 require('pretty-error').start();
 
 // CONFIG
@@ -18,15 +17,16 @@ db.on('connected', () => console.log('Mongo connected at: ', mongoURI));
 db.on('disconnected', () => console.log('Mongo disconnected'));
 mongoose.Promise = global.Promise;
 
+// controllers
+const journalController = require('./controllers/journal')
+
 
 // MIDDLEWARE
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(express.static('public'));
 app.use(morgan('dev'));
-
-
+app.use('/journal', journalController);
 
 // LISTEN
 app.listen(PORT, () => console.log('BOOKS API running on port: ', PORT));
->>>>>>> 53369cb29d0832e93f389eeb2b9fba602220433a
