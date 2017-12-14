@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-const express         = require ( 'express' );
-const app             = express();
-=======
 // DEPENDENCIES
 const express    = require('express');
 const mongoose   = require('mongoose');
