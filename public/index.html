@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head ng-app='journal_app'>
+  <head ng-app='Journal_App'>
     <meta charset="utf-8">
     <link rel="stylesheet" href="/css/style.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
@@ -8,6 +8,24 @@
     <title></title>
   </head>
   <body ng-controller='MainController as ctrl'>
-
+    <header>
+      <small>New entry</small>
+      <form ng-submit='ctrl.submitEntry()'>
+        <input type="text" placeholder="title" ng-model="ctrl." />
+        <input type="text" placeholder="entry" ng-model="" />
+        <input type="text" name="image" placeholder="link your image" ng-model=''>
+        <input type="submit" />
+      </form>
+    </header>
+    <main>
+      <div ng-repeat='entry in ctrl.entries'>
+        <div class="">
+          <img src="{{ ctrl.entry.img }}" alt="">
+          <h1>{{ ctrl.entry.title }}</h1>
+          <p>{{ ctrl.entry.entry }}</p>
+        </div>
+      </div>
+    </main>
+    <footer>all rights reserved.</footer>
   </body>
 </html>
