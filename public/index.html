@@ -11,9 +11,9 @@
     <header>
       <small>New entry</small>
       <form ng-submit='ctrl.submitEntry()'>
-        <input type="text" placeholder="title" ng-model="ctrl." />
-        <input type="text" placeholder="entry" ng-model="" />
-        <input type="text" name="image" placeholder="link your image" ng-model=''>
+        <input type="text" placeholder="title" ng-model="ctrl.title" />
+        <input type="text" placeholder="entry" ng-model="ctrl.entry" />
+        <input type="text" name="image" placeholder="link your image" ng-model='ctrl.img'>
         <input type="submit" />
       </form>
     </header>
