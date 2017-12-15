@@ -6,6 +6,7 @@ app.controller('MainController', ['$http', function($http) {
   {  title: 'jklj',
     entry: 'lkdjl'}
   ];
+  this.show = false;
 
 
   this.view = () => {
@@ -42,6 +43,26 @@ app.controller('MainController', ['$http', function($http) {
   })
   .catch(err => this.error = 'Server broke?' );
   }
+
+  this.delete =  ( id ) => {
+      $http({
+        method: 'DELETE',
+        url   : '/journal/' + id,
+        data  : id
+      }).then (  ( data ) => {
+        //decrease the number of records
+        this.entries.id--;
+        this.view();
+      } , ( error ) => {
+        console.log( error );
+      });
+    }
+
+  this.showFunc = () => {
+    this.show = !this.show;
+    console.log(this.show);
+  }
+
 
 }]); //end controller
 console.log('last');

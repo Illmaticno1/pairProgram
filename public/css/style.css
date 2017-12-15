@@ -1,0 +1,61 @@
+body
+{
+  background-color: grey;
+  font-family: 'Cedarville Cursive', cursive;
+}
+header{
+  width: 98%;
+  margin: 0 auto;
+  margin-bottom: 2%;
+  /*background-color: white;*/
+}
+.modal
+{
+  z-index: 100;
+  background-color: white;
+  height: 500px;
+  width: 500px;
+}
+.entry
+{
+  width: 220px;
+  height: 400px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 2%;
+  padding-top: 3%;
+  float: left;
+}
+
+.container
+{
+  /*display: grid;*/
+  width: 100%;
+  margin-left: 1%;
+  justify-content:space-between;
+}
+
+img
+{
+  height: 25%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 5%;
+}
+
+form
+{
+  width: 80%;
+  /*margin: 0 auto;*/
+  margin-left: 10%;
+  display: block;
+  /*background-color: white;*/
+}
+
+input
+{
+  height: 30px;
+  border-radius: 5px;
+}

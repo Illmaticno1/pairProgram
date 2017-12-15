@@ -5,12 +5,13 @@
     <title>Books App</title>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Cedarville+Cursive" rel="stylesheet">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
   </head>
   <body ng-controller='MainController as ctrl'>
     <header>
-      <small>New entry</small>
+      <h3>My Journal</h3>
       <form ng-submit='ctrl.submitEntry()'>
         <input type="text" placeholder="title" ng-model="ctrl.formdata.title" />
         <input type="text" placeholder="entry" ng-model="ctrl.formdata.entry" />
@@ -19,14 +20,22 @@
       </form>
     </header>
     <main>
-      <div ng-repeat='fun in ctrl.entries'>
-        <div>
+      <div  class="container" ng-repeat='fun in ctrl.entries'>
+        <div class="entry" ng-click="ctrl.showFunc()">
           <img src="{{ fun.img }}" alt="">
           <h1>{{ fun.title }}</h1>
           <p>{{ fun.entry }}</p>
+          <button type="button" name="button" ng-click='ctrl.delete(fun._id)'>Delete</button>
         </div>
       </div>
+      <!-- <div class="modal" ng-if='ctrl.show' ng-repeat='fun in ctrl.entries'>
+        <div class="entry">
+          <img src="{{ fun.img }}" alt="">
+          <h1>{{ fun.title }}</h1>
+          <p>{{ fun.entry }}</p>
+        </div> -->
+      </div>
     </main>
-    <footer>all rights reserved.</footer>
+    <footer></footer>
   </body>
 </html>
