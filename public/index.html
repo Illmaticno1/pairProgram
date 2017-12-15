@@ -26,6 +26,16 @@
           <h1>{{ fun.title }}</h1>
           <p>{{ fun.entry }}</p>
           <button type="button" name="button" ng-click='ctrl.delete(fun._id)'>Delete</button>
+          
+           <form class="edit" ng-submit='ctrl.update()'>
+            <input type="text" placeholder="title"
+            value="ctrl.formdata.title" ng-model="ctrl.formdata.title" />
+            <input type="text" placeholder="entry"
+            value="ctrl.formdata.entry" ng-model="ctrl.formdata.entry" />
+            <input type="text" name="image" placeholder="link your image"
+            value="ctrl.formdata.img" ng-model='ctrl.formdata.img'>
+            <input type="submit" />
+          </form>
         </div>
       </div>
       <!-- <div class="modal" ng-if='ctrl.show' ng-repeat='fun in ctrl.entries'>
