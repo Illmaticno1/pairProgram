@@ -1,28 +1,29 @@
 <!DOCTYPE html>
-<html>
-  <head ng-app='Journal_App'>
+<html ng-app='Journal_App'>
+  <head>
     <meta charset="utf-8">
+    <title>Books App</title>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
     <script type="text/javascript" src="/js/app.js"></script>
-    <title></title>
   </head>
   <body ng-controller='MainController as ctrl'>
     <header>
       <small>New entry</small>
       <form ng-submit='ctrl.submitEntry()'>
-        <input type="text" placeholder="title" ng-model="ctrl.title" />
-        <input type="text" placeholder="entry" ng-model="ctrl.entry" />
-        <input type="text" name="image" placeholder="link your image" ng-model='ctrl.img'>
+        <input type="text" placeholder="title" ng-model="ctrl.formdata.title" />
+        <input type="text" placeholder="entry" ng-model="ctrl.formdata.entry" />
+        <input type="text" name="image" placeholder="link your image" ng-model='ctrl.formdata.img'>
         <input type="submit" />
       </form>
     </header>
     <main>
-      <div ng-repeat='entry in ctrl.entries'>
-        <div class="">
-          <img src="{{ entry }}" alt="">
-          <h1>{{ entry }}</h1>
-          <p>{{ entry }}</p>
+      <div ng-repeat='fun in ctrl.entries'>
+        <div>
+          <img src="{{ fun.img }}" alt="">
+          <h1>{{ fun.title }}</h1>
+          <p>{{ fun.entry }}</p>
         </div>
       </div>
     </main>

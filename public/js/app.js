@@ -1,17 +1,12 @@
 const app = angular.module('Journal_App', []);
-
+console.log('loads');
 app.controller('MainController', ['$http', function($http) {
   // initial state
   this.entries = [
-    {
-      title: 'hmmm',
-      entry: 'yuopilaf',
-      img: 'https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg'
-    }
+  {  title: 'jklj',
+    entry: 'lkdjl'}
   ];
-  this.title = 'hmmm';
-  this.entry = 'yuopilaf';
-  this.img = 'https://cloud.netlifyusercontent.com/assets/344dbf88-fdf9-42bb-adb4-46f01eedd629/68dd54ca-60cf-4ef7-898b-26d7cbe48ec7/10-dithering-opt.jpg';
+
 
   this.view = () => {
     $http({
@@ -19,6 +14,7 @@ app.controller('MainController', ['$http', function($http) {
       url : '/journal'
     }).then(
       (response) => {
+        console.log(response.data);
         this.entries = response.data;
       },(error) => {
         console.log(error.message);
@@ -29,14 +25,17 @@ app.controller('MainController', ['$http', function($http) {
 
   this.formdata = {};
   this.submitEntry = () => {
+    console.log(this.formdata);
     $http({
       url: '/journal',
       method: 'post',
       data: this.formdata
     })
   .then(response => {
+
     console.log('New Entry successful!');
     this.entries = response.data;
+    this.view();
   }, ex => {
     console.log(ex.data.err);
     this.error = ex.statusText;
@@ -45,3 +44,4 @@ app.controller('MainController', ['$http', function($http) {
   }
 
 }]); //end controller
+console.log('last');
